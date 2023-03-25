@@ -2,8 +2,13 @@ let firstNum = 3;
 let secondNum = 5;
 let op = '+';
 
-console.log(operate(3, 5, op));
-
+const buttons = document.querySelectorAll('button');
+const displayText = document.querySelector('.current');
+buttons.forEach(button => {
+    button.addEventListener('click', e => {
+        displayText.textContent += button.textContent;
+    })
+})
 function add(a, b) {
     return +a + +b;
 }
