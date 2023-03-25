@@ -20,14 +20,17 @@ body {
     width: 500px;
     border: 5px solid black;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
-
 .display-container {
     height: 100px;
     margin: 20px;
     background-color: rgba(253, 163, 46, 0.986);
     border: 3px solid black;
     border-radius: 10px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
 }
 
 .functions-container {
@@ -44,6 +47,10 @@ button {
     border-radius: 10px;
     transition: .2s;
 }
+/*
+.op {
+    background-color: rgb(16, 219, 233);
+}*/
 
 button:hover {
     cursor: pointer;
@@ -52,4 +59,23 @@ button:hover {
 
 button:active {
     background-color:rgba(0, 0, 0, 0.87);
+}
+/*
+.op:active {
+    background-color: rgba(16, 219, 233, 0.623);
+}*/
+
+.display-container div {
+    align-self: flex-end;
+    font-size: 52px;
+    line-height: 52px;
+    font-weight: 200;
+    padding: 5px;
+}
+
+.display-container .previous {
+    font-size: 24px;
+    line-height: 24px;
+    padding-bottom: 0;
+    font-weight: 100;
 }
