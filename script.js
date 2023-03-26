@@ -13,7 +13,10 @@ buttons.forEach(button => {
             op = button.textContent.trim();
         } 
         else if (button.classList.contains('num')) {
-            displayText.textContent += button.textContent;
+            if (!button.classList.contains('decimal') || !displayText.textContent.includes('.')) {
+                displayText.textContent += button.textContent;
+            }
+            
             if (!op) {
                 firstNum = displayText.textContent;
             }
