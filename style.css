@@ -31,6 +31,7 @@ body {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .functions-container {
