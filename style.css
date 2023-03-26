@@ -30,6 +30,7 @@ body {
     border-radius: 10px;
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
     flex-direction: column;
     overflow: hidden;
 }
@@ -66,17 +67,9 @@ button:active {
     background-color: rgba(16, 219, 233, 0.623);
 }*/
 
-.display-container div {
-    align-self: flex-end;
+.display-container .current {
     font-size: 52px;
     line-height: 52px;
     font-weight: 200;
-    padding: 5px;
-}
-
-.display-container .previous {
-    font-size: 24px;
-    line-height: 24px;
-    padding-bottom: 0;
-    font-weight: 100;
+    padding: 10px;
 }
