@@ -29,8 +29,8 @@ buttons.forEach(button => {
         } 
         else if (button.classList.contains('delete')) {
             if (!secondNum) {
-                firstNum = Math.floor(firstNum / 10);
-                displayText.textContent = firstNum;
+                displayText.textContent = displayText.textContent.slice(0, displayText.textContent.length-1);
+                firstNum = displayText.textContent;
             }
             else {
                 secondNum = Math.floor(firstNum / 10);
