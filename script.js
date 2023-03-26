@@ -7,7 +7,7 @@ const displayText = document.querySelector('.current');
 buttons.forEach(button => {
     button.addEventListener('click', e => {
         if (button.classList.contains('op')) {
-            if (op !== null) {
+            if (op !== null && secondNum !== null) {
                 setUpOperate();
             }
             op = button.textContent.trim();
@@ -27,14 +27,33 @@ buttons.forEach(button => {
         else if (button.classList.contains('clear')) {
             clear();
         } 
+        else if (button.classList.contains('delete')) {
+            if (!secondNum) {
+                firstNum = Math.floor(firstNum / 10);
+                displayText.textContent = firstNum;
+            }
+            else {
+                secondNum = Math.floor(firstNum / 10);
+                displayText.textContent = secondNum;
+            }
+        }
+        else if (button.classList.contains('funny')) {
+            const random = [Math.random() * 255, Math.random() * 255, Math.random() * 255];
+            document.body.setAttribute('style', `background-color: rgb(${random[0]}, ${random[1]}, ${random[2]});`);
+        }
         else if (secondNum !== null){
             setUpOperate();
-        }
+        } 
     });
 });
 
 function setUpOperate() {
+    console.log('nani');
+    console.log(firstNum);
+    console.log(secondNum);
+    console.log(op);
     firstNum = operate(firstNum, secondNum, op);
+    firstNum = Math.round(firstNum*10000)/10000;
     secondNum = null;
     op = null;
     displayText.textContent = firstNum;
@@ -63,6 +82,10 @@ function divide(a, b) {
     return +a / +b;
 }
 
+function remainder(a, b) {
+    return +a % +b;
+}
+
 function operate(a, b, op) {
     switch(op) {
         case '+':
@@ -71,8 +94,10 @@ function operate(a, b, op) {
             return subtract(a, b);
         case 'x':
             return multiply(a, b);
-        case '/':
+        case '÷':
             return divide(a, b);
+        case '%':
+            return remainder(a, b);
         default:
             return "oopsies";
     }
